@@ -43,3 +43,8 @@ b = pd.DataFrame(dict(a=[1,2,3], b=[3,2,1]))
 dif = a.merge(b,indicator=True,how='outer')
 len(dif[dif['_merge'] != 'both'])
 ```
+## pytest
+run specific test function, show stdout and print verbose
+```
+pytest module.py::test_function -s -vv
+```
