@@ -29,7 +29,13 @@ docker run -ti image_name
 # with port forwarding and docker volume
 docker run -ti -p host_port:container_port -v volume_name:path_to_dir_in_container image_name
 ```
-
+## docker proxy
+```
+# when using docker build and you dont want to mess with passing proxy shit to curl etc
+docker build -f Dockerfile --network=host -t image_tag ./path/to/dockerfile
+# when starting container
+docker run -ti image_tag --net=host
+```
 ## docker volume
 ```
 docker volume create volume_name
