@@ -34,6 +34,17 @@ docker run -ti -p host_port:container_port -v volume_name:path_to_dir_in_contain
 ```
 docker volume create volume_name
 ```
+
+## murder all docker images/containers/volumes/ps
+```
+# get rid of images "easy" to remove
+docker rm $(docker images) -f
+# now kill off the "hard" ones
+docker rm $(docker ps -aq)
+# remove volumes
+docker volume rm $(docker volume ls -q)
+```
+
 ## pandas diff
 ```
 import pandas as pd
