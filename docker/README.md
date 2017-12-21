@@ -23,7 +23,10 @@ docker run -ti image_tag --net=host
 ```
 docker volume create volume_name
 ```
-
+## where docker volume lives on dis
+```
+/var/lib/docker/volumes/
+```
 ## murder all docker images/containers/volumes/ps
 ```
 # get rid of images "easy" to remove
