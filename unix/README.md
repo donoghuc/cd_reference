@@ -12,7 +12,7 @@ tar -xvf filename.tar
 ## scp directory
 ```
 # for remote: user@remote:/path/to/dir
-scp -R from to
+scp -r from to
 ```
 ## file permissions
 ```
