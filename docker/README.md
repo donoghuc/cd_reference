@@ -33,3 +33,9 @@ docker rm $(docker ps -aq)
 # remove volumes
 docker volume rm $(docker volume ls -q)
 ```
+## copy files to/from running container
+sometimes i want a file to or from a running container during development
+```
+#docker cp from to (can use container name)
+docker cp awesome_leavitt:/release_quality_data/test/examine_output_files/look74357.p .
+```
