@@ -23,9 +23,13 @@ docker run -ti image_tag --net=host
 ```
 docker volume create volume_name
 ```
-## where docker volume lives on dis
+## where docker volume lives on host
 ```
 /var/lib/docker/volumes/
+```
+## start interactive terminal session with running container
+```
+docker attach awesome_leavitt
 ```
 ## murder all docker images/containers/volumes/ps
 ```
