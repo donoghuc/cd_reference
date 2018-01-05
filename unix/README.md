@@ -26,3 +26,12 @@ scp -r from to
 
 chmod 600 file_or_dir
 ```
+
+## scp/ssh using rsa key
+```
+# ssh
+ssh -i /path/to/private/key user@remote
+
+#scp
+scp -i /path/to/private/key user@remote:/paht/to/source/ /path/to/dest
+```
