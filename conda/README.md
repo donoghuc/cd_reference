@@ -3,6 +3,8 @@
 ```
 ## new conda env
 conda create --name env_name
+## new conda env from yml
+conda env create -f environment.yml
 ```
 ## share env
 ```
