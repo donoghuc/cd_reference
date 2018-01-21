@@ -1,79 +1,36 @@
 # Reference 
 The purpose of this repo is to collect little bits of info for my own quick reference
 
-for now everything will go in this one main readme, eventually I will organize by topic
+## my ubuntu 16.04 (LTS) setup! 
+```
+# get curl
+sudo apt-get install curl
 
-## tar gzip
-```
-# compress directory
-tar -cvzf tarballname.tar.gz dir
+# get minconda
+curl -LO https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -p ~/miniconda -b
+rm Miniconda3-latest-Linux-x86_64.sh 
+echo "export PATH=~/miniconda/bin:\$PATH" >> ~/.bashrc
+source ~/.bashrc
 
-# extract
-gunzip filename.tar.gz
-tar -xvf filename.tar
-```
-## scp directory
-```
-# for remote: user@remote:/path/to/dir
-scp -R from to
-```
-## docker build
-```
-docker build -f Dockerfile -t image_name path/to/dir/containing/dockerfile
-```
-## docker run
-```
-# interactive terminal, no exposed ports or volumes
-docker run -ti image_name
+# get sublime text 3
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt-get update
 
-# with port forwarding and docker volume
-docker run -ti -p host_port:container_port -v volume_name:path_to_dir_in_container image_name
-```
-## docker proxy
-```
-# when using docker build and you dont want to mess with passing proxy shit to curl etc
-docker build -f Dockerfile --network=host -t image_tag ./path/to/dockerfile
-# when starting container
-docker run -ti image_tag --net=host
-```
-## docker volume
-```
-docker volume create volume_name
+# set up first virtualenv
+mkdir working_dir
+cd working_dir/
+virtualenv -p /home/cas/miniconda/bin/python --no-site-packages ocr
+source ocr/bin/activate
+
+# pytesseract and opencv 
+sudo apt-get install tesseract-ocr
+pip install pytesseract
+
+# osu virtual machine
+https://oregonstate.app.box.com/v/vmrc
+cas@ubuntu:~/Downloads$ chmod +x VMware-Remote-Console-10.0.2-7096020.x86_64.bundle 
+cas@ubuntu:~/Downloads$ sudo ./VMware-Remote-Console-10.0.2-7096020.x86_64.bundle
 ```
 
-## murder all docker images/containers/volumes/ps
-```
-# get rid of images "easy" to remove
-docker rm $(docker images) -f
-# now kill off the "hard" ones
-docker rm $(docker ps -aq)
-# remove volumes
-docker volume rm $(docker volume ls -q)
-```
-
-## pandas diff
-```
-import pandas as pd
-a = pd.DataFrame(dict(a=[1,2,3], b=[3,2,1]))
-b = pd.DataFrame(dict(a=[1,2,3], b=[3,2,1]))
-
-dif = a.merge(b,indicator=True,how='outer')
-len(dif[dif['_merge'] != 'both'])
-```
-## pytest
-run specific test function, show stdout and print verbose
-```
-pytest module.py::test_function -s -vv
-```
-
-## Python directory creation 
-```
-# make a directory if there is not one (avoid race condition described in 
-# https://stackoverflow.com/questions/273192/how-can-i-create-a-directory-if-it-does-not-exist/14364249#14364249
-
-import pathlib
-import os
-test_path = pathlib.Path(os.path.join('example', 'path))
-if not test_path.is_dir():
-    test_path.mkdir(exist_ok=True)
- ```
