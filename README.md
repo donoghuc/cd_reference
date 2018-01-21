@@ -24,6 +24,9 @@ cd working_dir/
 virtualenv -p /home/cas/miniconda/bin/python --no-site-packages ocr
 source ocr/bin/activate
 
+# get git
+sudo apt-get install git
+
 # pytesseract and opencv 
 sudo apt-get install tesseract-ocr
 pip install pytesseract
