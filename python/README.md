@@ -15,7 +15,8 @@ if not test_path.is_dir():
 ```
 # create new virtual env directory
 # the -p is path to python interpreter you want
-virtualenv -p /home/cas/miniconda/bin/python [env name]
+# i use --no-site-packages quite a bit to "start fresh" each virtualenv
+virtualenv -p /home/cas/miniconda/bin/python --no-site-packages [env name]
 
 # start virtual env
 source [path to env dir]/bin/activate
