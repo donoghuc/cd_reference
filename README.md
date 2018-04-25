@@ -41,7 +41,6 @@ cas@ubuntu:~/Downloads$ sudo ./VMware-Remote-Console-10.0.2-7096020.x86_64.bundl
 from https://www.ubuntu.com/download/desktop/contribute?version=16.04.4&architecture=amd64 iso
 ## after boot
 ```
-sudo apt-get update && apt-get upgrade
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install emacs
 sudo apt-get install git
