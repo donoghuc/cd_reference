@@ -37,3 +37,15 @@ cas@ubuntu:~/Downloads$ chmod +x VMware-Remote-Console-10.0.2-7096020.x86_64.bun
 cas@ubuntu:~/Downloads$ sudo ./VMware-Remote-Console-10.0.2-7096020.x86_64.bundle
 ```
 
+# for puppet lab
+from https://www.ubuntu.com/download/desktop/contribute?version=16.04.4&architecture=amd64 iso
+## after boot
+```
+sudo apt-get update && apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install emacs
+sudo apt-get install git
+sudo apt-get install curl
+```
+## emacs config
+add https://github.com/donoghuc/emacs_config to ~/.emacs.d
