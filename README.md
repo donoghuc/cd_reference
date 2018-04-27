@@ -48,3 +48,40 @@ sudo apt-get install curl
 ```
 ## emacs config
 add https://github.com/donoghuc/emacs_config to ~/.emacs.d
+
+# more install notes
+```
+#!/bin/bash
+
+# update new machine
+apt-get -y update && apt-get -y upgrade
+
+# install bolt to do the rest! 
+apt-get install -y make gcc ruby-dev
+gem install bolt
+```
+```
+#!/bin/bash
+
+# get some basic tools
+apt-get install -y git
+apt-get install -y curl
+
+# set up emacs
+apt-get install -y emacs
+git clone https://github.com/donoghuc/emacs_config.git ~/.emacs.d
+
+# install docker and docker compose
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+apt-get update
+
+apt-get install -y docker-ce
+
+curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+```
+
